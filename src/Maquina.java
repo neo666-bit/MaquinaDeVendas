@@ -22,6 +22,7 @@ public class Maquina {
 
 
     public void armazenar() throws IOException {
+        System.out.println();
         BufferedWriter escritor = new BufferedWriter(new FileWriter(path));
         System.out.println("Bem Vindo ao sistema de armazenamento!");
         System.out.println("O que deseja armazenar?");
