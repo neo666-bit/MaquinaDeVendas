@@ -1,10 +1,5 @@
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.io.IOException;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
 
 
 public class Maquina {
@@ -16,14 +11,12 @@ public class Maquina {
     public ArrayList<Integer> quantSal = new ArrayList<>();
     public ArrayList<Integer> quantDoc = new ArrayList<>();
 
-    String path = "src/estoque.txt";
 
 
 
 
-    public void armazenar() throws IOException {
+    public void armazenar() {
         System.out.println();
-        BufferedWriter escritor = new BufferedWriter(new FileWriter(path));
         System.out.println("Bem Vindo ao sistema de armazenamento!");
         System.out.println("O que deseja armazenar?");
         System.out.println("1- Salgados\n2- Bebidas\n3- Doces\n4-Sair");
@@ -73,8 +66,7 @@ public class Maquina {
         }
     }
 
-    public void Consultar() throws IOException {
-        BufferedReader leitor = new BufferedReader(new FileReader(path));
+    public void Consultar() {
         while (true) {
             System.out.println("Bem Vindo ao Sistema de consulta");
             System.out.println("O que deseja consultar\n1- Salgados\n2- Refrigerantes\n3- Doces\n4- Sair ?");
