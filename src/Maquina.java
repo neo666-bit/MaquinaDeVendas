@@ -1,8 +1,10 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.time.chrono.ChronoLocalDateTime;
 
 
 public class Maquina {
+
     public Scanner scn = new Scanner(System.in);
     public ArrayList<String> salgados = new ArrayList<>();
     public ArrayList<String> refrigerantes = new ArrayList<>();
@@ -16,8 +18,13 @@ public class Maquina {
 
 
     public void armazenar() {
+
+        ChronoLocalDateTime<?> now = ChronoLocalDateTime.from(java.time.LocalDateTime.now());
+
+
         System.out.println();
         System.out.println("Bem Vindo ao sistema de armazenamento!");
+        System.out.println("Horario local:" + now.toLocalTime());
         System.out.println("O que deseja armazenar?");
         System.out.println("1- Salgados\n2- Bebidas\n3- Doces\n4-Sair");
         int opa = scn.nextInt();
@@ -30,9 +37,10 @@ public class Maquina {
                     salgados.add(scn.nextLine());
                 } while (salgados.size() < 5);
                 if (salgados.size() == 5) {
-                    for (String salgado : salgados) {
-                        System.out.println("Digite as quantidades de:" + salgado);
-                        quantSal.add(scn.nextInt());
+                    for (int i = 0; i < salgados.size(); i++) {
+                        System.out.println("Digite as quantidades de:" + salgados.get(i));
+                        int quant = scn.nextInt();
+                        quantSal.set(i, quantSal.get(i) + quant);
                     }
                 }
                 break;
@@ -43,9 +51,10 @@ public class Maquina {
                     refrigerantes.add(scn.nextLine());
                 } while (refrigerantes.size() < 5);
                 if (refrigerantes.size() == 5) {
-                    for (String refrigerante : refrigerantes) {
-                        System.out.println("Digite as quantidades de:" + refrigerante);
-                        quantRef.add(scn.nextInt());
+                    for (int i = 0; i < refrigerantes.size(); i++) {
+                        System.out.println("Digite as quantidades de:" + refrigerantes.get(i));
+                        int quant = scn.nextInt();
+                        quantRef.set(i, quantRef.get(i) + quant);
                     }
                 }
                 break;
@@ -57,9 +66,10 @@ public class Maquina {
                 } while (doces.size() < 5);
 
                 if (doces.size() == 5) {
-                    for (String doce : doces) {
-                        System.out.println("Digite as quantidades de:" + doce);
-                        quantDoc.add(scn.nextInt());
+                    for (int i = 0; i < doces.size(); i++) {
+                        System.out.println("Digite as quantidades de:" + doces.get(i));
+                        int quant = scn.nextInt();
+                        quantDoc.set(i, quantDoc.get(i) + quant);
                     }
                 }
                 break;
@@ -242,6 +252,7 @@ public class Maquina {
                             System.out.println("Desculpe, não temos essa quantidade em estoque");
                         }
                         break;
+
                     }
             break;
         }
