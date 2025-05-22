@@ -1,18 +1,17 @@
-
-import java.io.IOException;
 import java.util.Scanner;
 
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
+        int op = 0;
         Maquina maquina = new Maquina();
         Scanner scn = new Scanner(System.in);
 
-        while (true){
+        do{
             System.out.println("Olá, Seja Bem Vindo à MiniVenda JAVA");
 
             System.out.println("O que deseja fazer?\n1- Estocagem\n2- Consultar\n3- Vender\n4- Sair");
-            int op = scn.nextInt();
+            op = scn.nextInt();
             switch(op){
                 case 1:
                     maquina.armazenar();
@@ -24,10 +23,7 @@ public class Main {
                     maquina.Vender();
                     break;
             }
-            if(op == 4){
-                break;
-            }
-        }
+        } while (op != 4);
 
     }
 
